@@ -8,17 +8,18 @@ namespace LogiSim
 {
     class BeginCircut : LogicGate
     {
-        
+
         public BeginCircut(bool value)
         {
             previous_1 = null;
             previous_2 = null;
             Output = value;
         }
-            
-        public override bool getOutput()
+
+        public override void SetOutput(bool value) { Output = value; }
+        protected override void OutputChange()
         {
-            return Output;
+            throw new NotImplementedException();
         }
 
 

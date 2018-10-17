@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace LogiSim
 {
-    class OR : LogicGate
+    class NOR : LogicGate
     {
-
-        public OR(LogicGate input1, LogicGate input2)
+        public NOR(LogicGate input1, LogicGate input2)
         {
             previous_1 = input1;
             previous_2 = input2;

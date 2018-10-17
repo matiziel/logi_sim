@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace LogiSim
 {
-    class OR : LogicGate
+    class NOT : LogicGate
     {
-
-        public OR(LogicGate input1, LogicGate input2)
+        public NOT(LogicGate input)
         {
-            previous_1 = input1;
-            previous_2 = input2;
+            previous_1 = input;
+            previous_2 = null;
 
             previous_1.StatusChange += OutputChange;
-            previous_2.StatusChange += OutputChange;
+            
+            Output = !previous_1.Output;
 
-            Output = previous_1.Output || previous_2.Output;
         }
         public override void SetOutput(bool value)
         {
@@ -26,7 +25,7 @@ namespace LogiSim
 
         protected override void OutputChange()
         {
-            Output = previous_1.Output || previous_2.Output;
+            Output = !previous_1.Output;
         }
     }
 }
